@@ -1,0 +1,559 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f7fb;
+  color: #1f2937;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Main App */
+.app {
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background: #1f3a5f;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.header h1 {
+  font-size: 34px;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: 700;
+}
+
+.header p {
+  font-size: 16px;
+  opacity: 0.95;
+  color: white;
+}
+
+/* Main Container */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 35px 0 60px;
+}
+
+/* Welcome */
+.welcome {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  margin-bottom: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.welcome h2 {
+  margin-bottom: 8px;
+  font-size: 24px;
+  color: #111827;
+  font-weight: 700;
+}
+
+.welcome p {
+  color: #4b5563;
+}
+
+/* Statistics */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.card h3 {
+  font-size: 16px;
+  color: #4b5563;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.number {
+  font-size: 34px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Add Button */
+.add-button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 13px 22px;
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  transition: 0.2s;
+}
+
+.add-button:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+
+/* Task Form */
+.task-form {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+}
+
+.task-form h2 {
+  margin-bottom: 25px;
+  color: #111827;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Form Labels */
+.task-form label {
+  display: block;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 18px 0 8px;
+}
+
+/* Form Inputs */
+.task-form input,
+.task-form textarea,
+.task-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background: white;
+  color: #1f2937;
+}
+
+/* Category and Priority text */
+.task-form select {
+  font-weight: 400;
+  color: #374151;
+}
+
+.task-form input:focus,
+.task-form textarea:focus,
+.task-form select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.task-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Calendar */
+.calendar {
+  margin-top: 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 15px;
+  background: #ffffff;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.calendar-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.calendar-header h3 {
+  font-size: 15px;
+  color: #111827;
+  font-weight: 600;
+}
+
+.calendar-nav {
+  width: 42px;
+  height: 42px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #e0ecff;
+  color: #111827;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.calendar-nav:hover {
+  background: #c7dcff;
+}
+
+.year-input {
+  width: 85px !important;
+  padding: 8px 10px !important;
+  text-align: center;
+  font-size: 15px !important;
+  font-weight: 700;
+  color: #111827;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.day-name {
+  text-align: center;
+  font-weight: 700;
+  font-size: 12px;
+  color: #374151;
+  padding: 8px 0;
+}
+
+.day,
+.selected-day,
+.today-day {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 4px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.day {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+
+.day:hover {
+  background: #c7dcff;
+}
+
+.today-day {
+  background: #93c5fd;
+  color: #0f172a;
+  border: 2px solid #2563eb;
+}
+
+.selected-day {
+  background: #2563eb;
+  color: white;
+  font-weight: 700;
+}
+
+.day:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+  color: #4b5563;
+}
+
+.empty-day {
+  min-height: 35px;
+}
+
+.selected-date {
+  margin-top: 12px;
+  font-weight: 700;
+  color: #1d4ed8;
+}
+
+/* Form Buttons */
+.form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.cancel-button,
+.save-button {
+  border: none;
+  padding: 11px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.cancel-button {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+
+.save-button {
+  background: #2563eb;
+  color: white;
+}
+
+.cancel-button:hover,
+.save-button:hover {
+  opacity: 0.9;
+}
+
+/* Tasks Section */
+.tasks {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+}
+
+.tasks h2 {
+  margin-bottom: 20px;
+  color: #111827;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+/* Search and Filters */
+.search-input,
+.filter-select {
+  padding: 11px 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  background: white;
+  color: #1f2937;
+}
+
+.search-input {
+  width: 45%;
+}
+
+.filter-select {
+  min-width: 160px;
+  font-weight: 600;
+}
+
+/* Task List */
+.task-list {
+  display: grid;
+  gap: 18px;
+}
+
+.task-item {
+  border: 1px solid #dbe1ea;
+  border-radius: 12px;
+  padding: 22px;
+  transition: 0.2s;
+  background: #ffffff;
+}
+
+.task-item:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+.task-item h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #111827;
+  font-weight: 700;
+}
+
+.task-item p {
+  margin: 7px 0;
+  color: #374151;
+}
+
+.task-item strong {
+  color: #111827;
+}
+
+/* Priority Badge */
+.priority-badge {
+  display: inline-block;
+  padding: 4px 9px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.priority-badge.low {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.priority-badge.medium {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.priority-badge.high {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Due Date Badges */
+.overdue-badge,
+.remaining-badge {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 4px 9px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.overdue-badge {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.remaining-badge {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+/* Task Buttons */
+.complete-button,
+.edit-button,
+.delete-button {
+  border: none;
+  padding: 9px 13px;
+  border-radius: 7px;
+  margin: 12px 7px 0 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.complete-button {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.edit-button {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.delete-button {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.complete-button:hover,
+.edit-button:hover,
+.delete-button:hover {
+  opacity: 0.85;
+}
+
+/* Empty State */
+.empty {
+  text-align: center;
+  padding: 45px 20px;
+  color: #4b5563;
+}
+
+.empty p:first-child {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .container {
+    width: 94%;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .search-input {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .filter-select {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .tasks,
+  .task-form,
+  .welcome {
+    padding: 20px;
+  }
+
+  .calendar-days {
+    gap: 4px;
+  }
+
+  .day,
+  .selected-day,
+  .today-day {
+    padding: 8px 2px;
+  }
+
+  .calendar-title {
+    gap: 6px;
+  }
+
+  .calendar-header h3 {
+    font-size: 15px;
+  }
+
+  .year-input {
+    width: 75px !important;
+  }
+}
+
+/* Professional Messages */
+.message-box {
+  margin-top: 15px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.error-message {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.message-box p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
